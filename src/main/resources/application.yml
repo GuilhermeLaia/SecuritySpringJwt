@@ -1,0 +1,26 @@
+server.port: 9966
+spring.profiles: default
+
+security:
+    basic:
+        enabled: false
+  
+security.jwt:
+  header: Authorization
+  jwtSchema: Bearer 
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+  
+spring.datasource:
+  url: "jdbc:h2:mem:testdb"
+  driverClassName: org.h2.Driver
+  username: sa
+  password: ""
+  data: "classpath*:import.sql"
+spring.jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled: true
